@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj": {}
+    "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj": {}
   },
   "projects": {
-    "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj": {
+    "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj",
+        "projectUniqueName": "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj",
         "projectName": "apiservice",
-        "projectPath": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj",
+        "projectPath": "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj",
         "packagesPath": "/home/ivan/.nuget/packages/",
-        "outputPath": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/obj/",
+        "outputPath": "/home/ivan/CODE/ObektivTest/apiservice/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ivan/.nuget/NuGet/NuGet.Config"

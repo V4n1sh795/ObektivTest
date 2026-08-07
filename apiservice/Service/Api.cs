@@ -1,9 +1,9 @@
 namespace Service;
-
+using Microsoft.EntityFrameworkCore;
 using Alert;
 using DBContext;
-
-
+using Microsoft.VisualBasic;
+using Org.BouncyCastle.Crypto.Signers;
 
 public class Api
 {
@@ -33,5 +33,28 @@ public class Api
     public static async Task<IResult> PatchPrice(ILogger<Program> logger, AppDbContext db, RequestModels.NewPrice request)
     {
         return await Parsing.AddPrice(logger, db, request.link, request.price);
+    }
+    public static async Task<IResult> Prices (ILogger<Program> logger, AppDbContext db)
+    {
+            var flats = await db.Flats.Where(f => f != null)
+                .Include(f => f.Prices) // Загружаем связанные данные
+                .ToListAsync();
+            
+            var response = flats.Select(f => new ResponseModels.FlatResponse
+            {
+                Id = f.Id,
+                Link = f.link,
+                Label = f.label,
+                Place = f.place,
+                LastPrice = f.Prices
+                    .Select(p => new ResponseModels.PriceResponse
+                    {
+                        Amount = p.price,
+                        Date = p.TimeChanged
+                    })
+                    .LastOrDefault(),
+                Emails = f.Emails
+            });
+            return Results.Ok(response);
     }
 }

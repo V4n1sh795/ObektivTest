@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using DBContext;
+using System.ComponentModel.Design;
 
 var builder = WebApplication.CreateBuilder(args);
 // Configs
@@ -23,6 +24,8 @@ using (var scope = app.Services.CreateScope())
 }
 // Endpoints
 app.MapGet("/", async (AppDbContext db) => Results.Ok(await db.Flats.ToListAsync()));
+
+app.MapGet("/api/prices", Service.Api.Prices);
 
 app.MapPost("/api/flat", Service.Api.Flat);
 

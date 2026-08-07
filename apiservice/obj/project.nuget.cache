@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0D1dCrBLAp0=",
+  "dgSpecHash": "t4IkG6VO8UY=",
   "success": true,
-  "projectFilePath": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj",
+  "projectFilePath": "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj",
   "expectedPackageFiles": [
     "/home/ivan/.nuget/packages/bouncycastle.cryptography/2.6.2/bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "/home/ivan/.nuget/packages/dotnetenv/3.2.0/dotnetenv.3.2.0.nupkg.sha512",
@@ -36,9 +36,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
-      "projectPath": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj",
+      "projectPath": "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj",
       "warningLevel": 1,
-      "filePath": "/home/ivan/CODE/ObektivTest/ObektivTest.bak/apiservice/apiservice.csproj",
+      "filePath": "/home/ivan/CODE/ObektivTest/apiservice/apiservice.csproj",
       "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
       "targetGraphs": [
         "net10.0"
