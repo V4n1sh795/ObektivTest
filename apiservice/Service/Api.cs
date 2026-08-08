@@ -14,7 +14,7 @@ public class Api
         if (!Utility.Validator.IsEmailValid(request.email) || !Utility.Validator.IsValidUrl(request.link)) 
             return Results.BadRequest("Email or link is not valid");
         {
-            Models.Flat? flat = await db.Flats.FindAsync(Utility.Hash.GetXxHash64(request.link));
+            Models.Flat? flat = await db.Flats.FindAsync(Utility.Hash.GetXxHash64(request.link)); // null exception is created in Validator
             if (flat == null)
             {
                 await Parsing.Main(logger, db, request.link, request.email); // null exception is created in Validator
@@ -37,7 +37,7 @@ public class Api
     public static async Task<IResult> Prices (ILogger<Program> logger, AppDbContext db)
     {
             var flats = await db.Flats.Where(f => f != null)
-                .Include(f => f.Prices) // Загружаем связанные данные
+                .Include(f => f.Prices) 
                 .ToListAsync();
             
             var response = flats.Select(f => new ResponseModels.FlatResponse
