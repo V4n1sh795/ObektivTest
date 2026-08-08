@@ -22,7 +22,12 @@ public class Api
             }
             else
             {
-                flat.Emails.Add(request.email);
+                if (!flat.Emails.Contains(request.email))
+                {
+                    flat.Emails.Add(request.email);
+                    logger.LogInformation("Email alreaady in subscription");    
+                }
+                    
                 db.SaveChanges();
                 logger.LogInformation("Flat exist adding email");
             }
