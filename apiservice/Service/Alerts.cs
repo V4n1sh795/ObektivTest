@@ -16,17 +16,16 @@ public static class Email {
         _email = Env.GetString("EMAIL");
         _app_passwd = Env.GetString("APP_PASSWD");
     }
-    private static async Task Send(string email, Models.Flat flat)
+    private static async Task Send(string email, Models.Flat flat, string new_price)
     {
         // 1. Создаем сообщение
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("Имя Отправителя", _email));
         message.To.Add(new MailboxAddress("Имя Получателя", email));
         message.Subject = "Обновление цены на квартиру";
-
         message.Body = new TextPart("plain") 
         { 
-            Text = $"{flat.label} находящаяся на {flat.place} \n {flat.link}" 
+            Text = $"{flat.label} находящаяся на {flat.place} \n {flat.link} \n Новая цена: {new_price}" 
         };
 
         using var client = new SmtpClient();
@@ -47,7 +46,7 @@ public static class Email {
             await client.DisconnectAsync(true);
         }
     }
-    public static async Task SendAll(ILogger<Program> logger, AppDbContext db, string link)
+    public static async Task SendAll(ILogger<Program> logger, AppDbContext db, string link, string new_price)
     {
         if (_email == null)
             LoadEnv();
@@ -58,7 +57,7 @@ public static class Email {
         {
             foreach (var email in flat.Emails)
             {
-                await Send(email, flat);
+                await Send(email, flat, new_price);
             }
         }
     }

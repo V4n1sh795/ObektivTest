@@ -40,7 +40,7 @@ public static class Parsing
             return Results.BadRequest("This flat is doesnt exist, or link is not valid");
         else
         {
-            await Alert.Email.SendAll(logger, db, link);
+            await Alert.Email.SendAll(logger, db, link, price);
             flat.Prices.Add(new Models.Price(price));
             await db.SaveChangesAsync();
             return Results.Ok();
