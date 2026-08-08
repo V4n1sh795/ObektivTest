@@ -50,9 +50,9 @@ public class Api
                     .Select(p => new ResponseModels.PriceResponse
                     {
                         Amount = p.price,
-                        Date = p.TimeChanged
+                        Date = p.TimeChanged 
                     })
-                    .LastOrDefault(),
+                    .LastOrDefault() ?? null,
                 Emails = f.Emails
             });
             return Results.Ok(response);
